@@ -1,37 +1,32 @@
 
 
-let salary = window.prompt("Please Add Your Annual Salary")
-let day = salary.trim()
+let income = window.prompt("Please Add Your Annual Salary")
+let base = parseInt(income.trim())
 
-console.log(typeof day)
 
-console.log(day)
+function calculateTax (base){
 
-switch(day)
-{
-    case 'monday':
-    alert('Im starting the week reading my emails')
-    break;
-    case 'tuesday':
-    alert('Im do the normal 9-5 working, go out for a walk ')
-    break;
-    case 'wednesday':
-    alert('Im star working and after work go to shopping')
-    break;
-    case 'thursday':
-    alert('Im starting the week with morning run')
-    break;
-    case 'friday':
-    alert('Im working on my projects')
-    break;
-    case 'saturday':
-    alert('Spend time with friends')
-    break;
-    case 'sunday':
-    alert('Have a nioce Sunday-Roast')
-    break;
- default :
- alert('Something went wrong')
+    if (base === NaN) {
+        console.log('Thats not a number mate')
+    }
 
+    if (base <= 37500) {
+         taxedSalary = (base * .8) / 12
+    } 
+    else if (base > 37500 && base <= 150000) {
+        console.log('2nd rate')
+        taxedSalary = (base / 2)
+    }else {
+        taxedSalary = (base / 1000)
+        console.log('something else')
+    }
+
+    if(taxedSalary ===NaN){
+        console.log('did something wrong')
+    }
+
+     console.log(`Based on your annual incom you will recive, ${taxedSalary}£ monthly`)
 
 }
+
+calculateTax(base)
